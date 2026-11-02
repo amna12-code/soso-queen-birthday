@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#570b2c">
+<title>Happy Birthday Soso Queen ♡</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;500;600;700;800&display=swap');
+:root {
+  --bg: #240511;
+  --wine: #570b2c;
+  --pink: #941b4e;
+  --rose: #d85c8b;
+  --light: #fff0f5;
+  --gold: #f4c6a7;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 25px 15px 40px;
+  font-family: 'Cairo', sans-serif;
+  color: var(--light);
+  background:
+    radial-gradient(ellipse at 50% 0%, #812247 0%, transparent 60%),
+    linear-gradient(150deg, #21040f, #4b0b26 55%, #21040f);
+  overflow-x: hidden;
+}
+button {
+  font: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+}
+.container {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+header {
+  text-align: center;
+  padding: 20px 0 24px;
+}
+.eyebrow {
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 3px;
+  direction: ltr;
+}
+h1 {
+  font-family: 'Amiri', serif;
+  font-size: clamp(39px, 10vw, 55px);
+  color: #ffe1ec;
+  line-height: 1.45;
+  margin: 10px 0 0;
+  text-shadow: 0 0 25px #ff9bc055;
+}
+.intro {
+  font-size: 14px;
+  line-height: 2;
+  color: #efc6d5;
+  margin: 5px auto 0;
+  max-width: 340px;
+}
+.crown {
+  font-size: 34px;
+  margin-bottom: 5px;
+}
+.section-label {
+  color: var(--gold);
+  font-size: 12px;
+  text-align: center;
+  margin: 0 0 15px;
+}
+.card-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 13px;
+}
+.gift-card {
+  position: relative;
+  min-height: 170px;
+  padding: 22px 12px;
+  border: 1px solid #f4b8ce55;
+  border-radius: 20px;
+  background: linear-gradient(145deg, #8b1b48, #4c0b27);
+  color: var(--light);
+  box-shadow: 0 12px 30px #10010955;
+  cursor: pointer;
+  transition: transform .25s, border-color .25s, background .25s;
+  overflow: hidden;
+}
+.gift-card::before {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border: 1px solid #ffffff15;
+  border-radius: 15px;
+  pointer-events: none;
+}
+.gift-card:active {
+  transform: scale(.97);
+}
+.gift-card:hover {
+  transform: translateY(-4px);
+  border-color: #ffc5da;
+  background: linear-gradient(145deg, #a42a59, #641337);
+}
+.gift-icon {
+  display: block;
+  font-size: 33px;
+  margin-bottom: 10px;
+}
+.gift-from {
+  display: block;
+  font-size: 12px;
+  color: #f6c6d7;
+  margin-bottom: 5px;
+}
+.gift-title {
+  display: block;
+  font-family: 'Amiri', serif;
+  font-size: 22px;
+  line-height: 1.5;
+  color: #fff1f6;
+}
+.tap-hint {
+  display: block;
+  font-size: 10px;
+  color: #e7a9c0;
+  margin-top: 8px;
+}
+.footer {
+  text-align: center;
+  color: #d9a1b6;
+  font-size: 12px;
+  line-height: 2;
+  margin: 27px 0 5px;
+}
+.footer span {
+  display: block;
+  font-family: 'Amiri', serif;
+  font-size: 19px;
+  color: #ffd0e1;
+}
+/* نافذة الرسالة */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  background: #13020bdc;
+  backdrop-filter: blur(8px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+}
+.overlay.open {
+  display: flex;
+  animation: fadeIn .25s ease;
+}
+.dialog {
+  width: 100%;
+  max-width: 470px;
+  max-height: 88vh;
+  overflow-y: auto;
+  position: relative;
+  border-radius: 23px;
+  border: 1px solid #f5b7cf77;
+  padding: 30px 22px 23px;
+  background:
+    radial-gradient(ellipse at top, #92254f, transparent 65%),
+    linear-gradient(150deg, #681333, #34091c);
+  box-shadow: 0 25px 80px #0009;
+  scrollbar-width: thin;
+  scrollbar-color: #c65c85 #3b0a20;
+  animation: rise .3s ease;
+}
+.close {
+  position: sticky;
+  top: 0;
+  float: left;
+  width: 34px;
+  height: 34px;
+  margin: -12px -8px 0 0;
+  border-radius: 50%;
+  border: 1px solid #ffffff35;
+  background: #ffffff12;
+  color: white;
+  font-size: 21px;
+  cursor: pointer;
+}
+.dialog-icon {
+  text-align: center;
+  font-size: 38px;
+  clear: both;
+}
+.dialog-from {
+  text-align: center;
+  color: var(--gold);
+  font-size: 12px;
+  margin: 8px 0 0;
+}
+.dialog h2 {
+  font-family: 'Amiri', serif;
+  font-size: 29px;
+  text-align: center;
+  line-height: 1.5;
+  margin: 5px 0 17px;
+  color: #ffe1ec;
+}
+.dialog-message {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-family: 'Amiri', serif;
+  font-size: 20px;
+  line-height: 2.05;
+  text-align: right;
+  color: #fff2f7;
+}
+.dialog-message[dir="ltr"] {
+  text-align: center;
+}
+.dialog-divider {
+  width: 55px;
+  height: 1px;
+  margin: 22px auto;
+  background: var(--gold);
+}
+.dialog-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.action-btn {
+  border: 0;
+  border-radius: 25px;
+  padding: 10px 19px;
+  background: #ffe4ee;
+  color: #681333;
+  font-weight: 700;
+  font-size: 12px;
+  cursor: pointer;
+}
+.action-btn.secondary {
+  background: #ffffff12;
+  border: 1px solid #ffffff30;
+  color: #ffe4ee;
+}
+.end-note {
+  text-align: center;
+  font-family: 'Amiri', serif;
+  font-size: 20px;
+  color: #ffd4e2;
+  margin-top: 18px;
+}
+.heart {
+  position: fixed;
+  z-index: 0;
+  bottom: -30px;
+  pointer-events: none;
+  color: #f5a2c0;
+  opacity: 0;
+  animation: floatUp linear forwards;
+}
+@keyframes floatUp {
+  0% { transform: translateY(0) rotate(0); opacity: 0; }
+  15% { opacity: .45; }
+  85% { opacity: .25; }
+  100% { transform: translateY(-110vh) rotate(35deg); opacity: 0; }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes rise {
+  from { opacity: 0; transform: translateY(15px) scale(.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@media (max-width: 350px) {
+  .card-list { gap: 9px; }
+  .gift-card { padding: 18px 8px; min-height: 155px; }
+  .gift-title { font-size: 19px; }
+  .dialog { padding: 26px 17px 20px; }
+  .dialog-message { font-size: 18px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+</style>
+</head>
+<body>
+<main class="container">
+  <header>
+    <div class="crown">👑</div>
+    <div class="eyebrow">A SPECIAL DAY FOR SOMEONE SPECIAL</div>
+    <h1>اليوم غير..</h1>
+    <p class="intro">
+      اليوم يوم سوسو كوين 💗<br>
+      أربع رسائل صغيرة، وكل رسالة فيها حب كبير.
+    </p>
+  </header>
+  <p class="section-label">♡ اختاري هديتك وافتحي رسالتك ♡</p>
+  <section class="card-list" aria-label="بطاقات عيد الميلاد">
+    <button class="gift-card" onclick="openCard(0)">
+      <span class="gift-icon">💌</span>
+      <span class="gift-from">FROM HAMOODI</span>
+      <span class="gift-title">حمودي</span>
+      <span class="tap-hint">اضغطي لفتح الرسالة ♡</span>
+    </button>
+    <button class="gift-card" onclick="openCard(1)">
+      <span class="gift-icon">🎀</span>
+      <span class="gift-from">FROM HAYAM</span>
+      <span class="gift-title">هيام</span>
+      <span class="tap-hint">اضغطي لفتح الرسالة ♡</span>
+    </button>
+    <button class="gift-card" onclick="openCard(2)">
+      <span class="gift-icon">🧸</span>
+      <span class="gift-from">FROM SAUD</span>
+      <span class="gift-title">سعود</span>
+      <span class="tap-hint">اضغطي لفتح الرسالة ♡</span>
+    </button>
+    <button class="gift-card" onclick="openCard(3)">
+      <span class="gift-icon">🤍</span>
+      <span class="gift-from">A LITTLE WISH</span>
+      <span class="gift-title">أمنية من القلب</span>
+      <span class="tap-hint">اضغطي لفتح الرسالة ♡</span>
+    </button>
+  </section>
+  <footer class="footer">
+    صُنعت بكل الحب، لشخص يستحق كل الحب.
+    <span>Happy Birthday, Soso Queen ❣️</span>
+  </footer>
+</main>
+<div class="overlay" id="overlay"
+     role="dialog" aria-modal="true"
+     aria-labelledby="dialogTitle"
+     onclick="backdropClose(event)">
+  <section class="dialog">
+    <button class="close" onclick="closeCard()" aria-label="إغلاق">×</button>
+    <div class="dialog-icon" id="dialogIcon">💌</div>
+    <p class="dialog-from" id="dialogFrom"></p>
+    <h2 id="dialogTitle"></h2>
+    <div class="dialog-message" id="dialogMessage"></div>
+    <div class="dialog-divider"></div>
+    <div class="dialog-actions">
+      <button class="action-btn secondary" id="prevBtn"
+              onclick="navigate(-1)">← البطاقة السابقة</button>
+      <button class="action-btn" id="nextBtn"
+              onclick="navigate(1)">البطاقة التالية ♡</button>
+    </div>
+    <div class="end-note" id="endNote" hidden>
+      كل عام وأنتِ محاطة بالحب يا سوسو 👑💗
+    </div>
+  </section>
+</div>
+<script>
+const cards = [
+  {
+    icon: "💌",
+    from: "FROM HAMOODI",
+    title: "Happy Birthday soso Queen",
+    message: `From Hamoodi
+Happy Birthday soso Queen
+كل عام وأنتِ أجمل صدفة وأغلى انسانه دخلت حياتي اللٰه يجعل أيامك كلها فرح وسعادة ويحقق لك كل أمنياتك ويكتب لك الخير في كل خطوة وجودك بحياتي نعمة وأنا ممتن لكل لحظة جمعتني فيك أتمنى لك سنة جديدة مليانة نجاح وضحكات وراحة تستاهلين كل شيء جميل يا صاحبة القلب الحلو ماتعرفين شكثر وجودك غيرني كثير للافضل احبك للابد المؤبد ياروحي وقلبي اللي ماسكنه غيرك ولا بيسكنه غيرك ياملكه قلبي وكوين دنيتي
+كل عام وأنتِ بخير يازوجتي وام عيالي احبك يا اولي واخري ❣️❣️`
+  },
+  {
+    icon: "🎀",
+    from: "FROM HAYAM",
+    title: "Happy Birthday mama",
+    message: `From Hayam
+Happy Birthday mama
+ماما حبيبة روحي ونبضي وقلبي وسعادتي واماني وملجئي متاكده مابتكوني امي وبس بتكوني حبيبتي وصديقتي واختي وملجئي بعز احتياجي متاكده بتكوني
+الجزء الحنون في حياتي بتحتويني وتضميني لصدرك وانا مررره مبسوطه ومرتاحه، انا مره محظوظه فيك بإنك امي احبك مره مره وبشوف فيك الام القويه اللي حاربت الدنيا كلها عشاني وعشان سعادتي وراحتي وحبك لنا هو اصدق شي بحياتي مره محظوظه فيك يا احلا واحن ماما بالدنيا، كل عام وانتِ بخيير يا اقوى ماما بالدنيا احبك❣️❣️`
+  },
+  {
+    icon: "🧸",
+    from: "FROM SAUD",
+    title: "Happy Birthday mama",
+    message: `From Saud
+Happy Birthday mama
+ماما حبيبه قلبي وروحي وجزء من قلبي وكل حياتي واماني بالحياه انت كل شي جميل بهالدنيا
+نورك، وسعادتك، وروحك، وامانك، وقلبك، وضحكتك
+انا مرره محظوظ فيك يا احلا ماما بالدنيا متاكد بتكوني احلا ام بالدنيا واحن ام بالدنيا وبتكوني معي بكل خطوه اخطيها وتساعديني لانك حاربتي الدنيا عشان راحتي وسعادتي انا مره محظوظ بأحلا ام واحلا قلب
+ابغى اقولك انا مره متحمس اشوفك واحضنك يا اقوى واحلا ماما بالدنيا احبك❣️❣️`
+  },
+  {
+    icon: "🤍",
+    from: "A LITTLE WISH FROM THE HEART",
+    title: "وأخيرًا.. أمنية من قلبي",
+    message: `و أخيرًا .. أمنية من قلبي
+يا رب اشوفك دايمًا بخير، و اشوف ضحكتك ما تفارق وجهك و اكون لك ذكرى حلوة في كل سنة من عمرك، كل عام وانتي معايا كل عام وانتي إنسانة اتمنى لها كل الحب و الخير و الفرحة من كل قلبي،
+happy birthday, my love 💗`
+  }
+];
+let currentCard = 0;
+let previousFocus = null;
+const overlay = document.getElementById("overlay");
+function openCard(index) {
+  currentCard = index;
+  previousFocus = document.activeElement;
+  renderCard();
+  overlay.classList.add("open");
+  document.body.style.overflow = "hidden";
+  document.querySelector(".close").focus();
+}
+function closeCard() {
+  overlay.classList.remove("open");
+  document.body.style.overflow = "";
+  if (previousFocus) previousFocus.focus();
+}
+function backdropClose(event) {
+  if (event.target === overlay) closeCard();
+}
+function navigate(direction) {
+  currentCard = (currentCard + direction + cards.length) % cards.length;
+  renderCard();
+}
+function renderCard() {
+  const card = cards[currentCard];
+  document.getElementById("dialogIcon").textContent = card.icon;
+  document.getElementById("dialogFrom").textContent = card.from;
+  document.getElementById("dialogTitle").textContent = card.title;
+  document.getElementById("dialogMessage").textContent = card.message;
+  document.getElementById("prevBtn").hidden = currentCard === 0;
+  const nextBtn = document.getElementById("nextBtn");
+  nextBtn.textContent = currentCard === cards.length - 1
+    ? "العودة للبداية ♡"
+    : "البطاقة التالية ♡";
+  document.getElementById("endNote").hidden =
+    currentCard !== cards.length - 1;
+  document.querySelector(".dialog").scrollTop = 0;
+}
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape" && overlay.classList.contains("open")) {
+    closeCard();
+  }
+});
+// قلوب متحركة في الخلفية
+const reduceMotion = window.matchMedia(
+  "(prefers-reduced-motion: reduce)"
+).matches;
+if (!reduceMotion) {
+  setInterval(() => {
+    const heart = document.createElement("span");
+    heart.className = "heart";
+    heart.textContent = Math.random() > 0.5 ? "♡" : "♥";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (12 + Math.random() * 17) + "px";
+    heart.style.animationDuration = (7 + Math.random() * 6) + "s";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 14000);
+  }, 800);
+}
+</script>
+</body>
+</html>
